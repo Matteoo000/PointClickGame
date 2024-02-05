@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+
     <title>Point and click adventure </title>
 </head>
+
 <body>
     <div id="title">
-        <h2>Title</h2>
+        <h1></h1>
     </div>
     <div id="mainscreen"></div>
-    <div id="playscreen"></div>
-    <div id="bottombarr"></div>
-    <div id="leftcornerbox"></div>
-    <div id="rightcornerbox"></div>
+    <div id="playscreen">
+        <div id="inventorybox">
+            <p>Inventory</p>
+            <ul id="inventorylist"></ul>
+        </div>
+        <div id="dialogbox" class="foreground">
+            <div id="mainCharacterspeech" class="foreground"></div>
+            <div id="counterspeech" class="foreground"></div>
+            <div id="setMainDialog"></div>
+            <div id="brownBar"></div>
+        </div>
+    </div>
 
-
+    <script src="js/main.js"></script>
 </body>
+
 </html>
