@@ -37,11 +37,30 @@ body {
 #maincharacter {
     width: 32px;
     height: 32px;
-    background-color: rgb(236, 229, 229);
+    background-color: white;
     left: 400px;
     top: 300px;
 }
 
+/*foreground items*/
+#door1 {
+    width: 64px;
+    height: 64px;
+    background-color: darkblue;
+    opacity: 0.5;
+    top: 150px;
+    left: 400px;
+}
+
+#sign {
+    width: 64px;
+    height: 32px;
+    background-color: brown;
+    top: 450px;
+    left: 10px;
+}
+
+/*invetorybox*/
 #inventorybox {
     position: relative;
     display: block;
@@ -90,17 +109,26 @@ body {
     height: 100px;
 }
 
+#tilemap {
+    width: 800px;
+    height: 600px;
+    top: 0px;
+    left: 0px;
+}
+
 .foreground {
     position: absolute;
     z-index: 1000;
-}
-
-.background {
-    position: absolute;
-    z-index: 0;
+    transition: all 1s ease-in-out;
 }
 
 .herocharacter {
     position: absolute;
     z-index: 100;
+    transition: all 1s ease-in-out;
+}
+
+.background {
+    position: absolute;
+    z-index: 0;
 }
