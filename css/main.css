@@ -47,9 +47,27 @@ body {
     width: 64px;
     height: 64px;
     background-color: darkblue;
-    opacity: 0.5;
+    opacity: 1;
     top: 150px;
     left: 400px;
+}
+
+#door2 {
+    width: 44px;
+    height: 54px;
+    /*background-color: darkblue;*/
+    opacity: 1;
+    top: 296px;
+    left: 169px;
+}
+
+#key1 {
+    width: 32px;
+    height: 32px;
+    background-color: yellow;
+    opacity: 1;
+    top: 166px;
+    left: 416px;
 }
 
 #sign {
