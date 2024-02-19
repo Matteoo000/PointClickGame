@@ -6,6 +6,7 @@ const playscreen = document.getElementById("playscreen");
 //game state
 gameState = {
     "door2locked": true,
+    "inventory": []
 }
 
 //Main character 
@@ -18,6 +19,8 @@ const inventorybox = document.getElementById('inventorybox');
 //foreground items
 const door1 = document.getElementById("door1");
 const sing = document.getElementById('sign');
+
+
 
 playscreen.onclick = function (e) {
     var rect = playscreen.getBoundingClientRect();
@@ -38,11 +41,7 @@ playscreen.onclick = function (e) {
             if (document.getElementById("key1") !== null) {
                 console.log('Found key');
                 document.getElementById("key1").remove();
-                const keyElement = document.createElement("Li");
-                keyElement.id = "inv-key";
-                keyElement.innerText = "key";
-                inventorylist.appendChild(keyElement);
-
+                changeinventory('key', 'add');
             }
             break;
 
@@ -52,7 +51,8 @@ playscreen.onclick = function (e) {
                 if (document.getElementById("inv-key") !== null) {
                     // yes unlock door
                     gameState.door2locked = false;
-                    //gamestate lvl1door2 = "unlocked"
+                    changeinventory('key', 'delete');
+                    console.log('door unlocked!');
                 }
                 else {
                     //no alert door locked
@@ -78,5 +78,59 @@ playscreen.onclick = function (e) {
             break;
 
     }
+    updateinventory(gameState.inventory, inventorylist);
+}
+/** 
+    *@param {string} itemName
+    *@param {string} action "add", "delete"
+    *@returns
+    */
+function changeinventory(itemName, action) {
+    if (itemName == null || action == null) {
+
+
+        console.log('wrong parameters given to changeinventory()');
+        return
+    }
+
+    switch (action) {
+        case 'add':
+            gameState.inventory.push(itemName);
+
+            break
+
+        case 'delete':
+            gameState.inventory.find(function (item, index) {
+                if (item == itemName) {
+                    var index = gameState.inventory.indexOf(item);
+                    if (index !== -1) {
+                        gameState.inventory.splice(index, 1);
+                    }
+                }
+            })
+            break
+
+        default:
+            break;
+    }
+
+}
+
+
+/**
+ * 
+ * @param {Array} inventory  array of items
+ * @param {HTMLAnchorElement} inventorylist
+ */
+function updateinventory(inventory, inventorylist) {
+    inventorylist.innerHTML = '';
+    inventory.forEach(function (item) {
+        const inventoryitem = document.createElement("li");
+        inventoryitem.id = "inv-" + item;
+        inventoryitem.innerText = item;
+        inventorylist.appendChild(inventoryitem);
+    })
+
+
 
 }
