@@ -9,9 +9,15 @@ gameState = {
     "inventory": []
 }
 
+const sec = 1000; //time in milliseconds
+
 //Main character 
 const maincharacter = document.getElementById("maincharacter");
 const offsetcharacterX = 16;
+
+//speech bubbles
+const mainCharacterspeech = document.getElementById("mainCharacterspeech");
+const counterspeech = document.getElementById("counterspeech");
 
 //inventory
 const inventorybox = document.getElementById('inventorybox');
@@ -27,14 +33,13 @@ playscreen.onclick = function (e) {
     var x = e.clientX - rect.left;
     var y = e.clientY - rect.top;
 
+    if (e.target.id !== "mcimage") {
+        maincharacter.style.left = x - offsetcharacterX + "px";
+        maincharacter.style.top = y - offsetcharacterX + "px";
+    }
     console.log(e.target.id);
-    maincharacter.style.left = x - offsetcharacterX + "px";
-    maincharacter.style.top = y - offsetcharacterX + "px";
-
-
     switch (e.target.id) {
         case "door1":
-            maincharacter.style.backgroundColor = "#FFFF00"
             door1.style.opacity = 0.5;
             sign.style.opacity = 1;
 
@@ -65,14 +70,12 @@ playscreen.onclick = function (e) {
             break;
 
         case "sign":
-            mainCharacter.style.backgroundColor = "#FF0000"
             sign.style.opacity = 0.5;
             door1.style.opacity = 1;
             break;
 
         default:
             //explode
-            maincharacter.style.backgroundColor = "#FFFFFF";
             door1.style.opacity = 1;
             sign.style.opacity = 1;
             break;
@@ -134,3 +137,28 @@ function updateinventory(inventory, inventorylist) {
 
 
 }
+/**
+ * Shows a message in a speech bubble 
+ * @param {*} targetBalloon 
+ * @param {string} message 
+ */
+function showMessage(targetBalloon, message) {
+    targetBalloon.style.opacity = "1";
+    targetBalloon.innerText = message;
+    setTimeout(hideMessage, 4 * sec, targetBalloon)
+}
+
+
+/**
+ * Set the opacity to 0
+ * @param {string} targetBalloon 
+ */
+function hideMessage(targetBalloon) {
+    targetBalloon.style.opacity = "0";
+}
+
+//showMessage("mainCharacterspeech");
+//showMessage("counterspeech");
+setTimeout(showMessage, 1 * sec, mainCharacterspeech, "hello");
+setTimeout(showMessage, 2 * sec, counterspeech, "hello");
+
