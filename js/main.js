@@ -18,7 +18,9 @@ const offsetcharacterX = 16;
 //speech bubbles
 const mainCharacterspeech = document.getElementById("mainCharacterspeech");
 const counterspeech = document.getElementById("counterspeech");
-
+const counteravatarimg = document.getElementById("counteravatarimg");
+const mcAudio = document.getElementById("mcAudio");
+const cAudio = document.getElementById("cAudio");
 //inventory
 const inventorybox = document.getElementById('inventorybox');
 
@@ -72,6 +74,15 @@ playscreen.onclick = function (e) {
         case "sign":
             sign.style.opacity = 0.5;
             door1.style.opacity = 1;
+            break;
+
+        case "statue":
+            showMessage(mainCharacterspeech, mcAudio, "wow cool statue...");
+            setTimeout(function () { counteravatarimg.style.opacity = 1 }, 4 * sec);
+            setTimeout(showMessage, 4 * sec, counterspeech, cAudio, "I NONO talk");
+            setTimeout(showMessage, 8 * sec, mainCharacterspeech, mcAudio, "YOU DONT HAVE TO BE A FAG ABT IT IMMA BLOW U UP NOW");
+            setTimeout(function () { counteravatarimg.style.opacity = 0 }, 12 * sec);
+
             break;
 
         default:
@@ -139,13 +150,17 @@ function updateinventory(inventory, inventorylist) {
 }
 /**
  * Shows a message in a speech bubble 
- * @param {*} targetBalloon 
+ * @param {getElementById} targetBalloon 
+ * @param {getElementById} targetSound
  * @param {string} message 
+ * 
  */
-function showMessage(targetBalloon, message) {
+function showMessage(targetBalloon, targetSound, message) {
+    targetSound.currentTime = 0;
+    targetSound.play();
     targetBalloon.style.opacity = "1";
     targetBalloon.innerText = message;
-    setTimeout(hideMessage, 4 * sec, targetBalloon)
+    setTimeout(hideMessage, 4 * sec, targetBalloon, targetSound)
 }
 
 
@@ -153,12 +168,13 @@ function showMessage(targetBalloon, message) {
  * Set the opacity to 0
  * @param {string} targetBalloon 
  */
-function hideMessage(targetBalloon) {
+function hideMessage(targetBalloon, targetSound) {
+    targetSound.pause();
     targetBalloon.style.opacity = "0";
 }
 
 //showMessage("mainCharacterspeech");
 //showMessage("counterspeech");
-setTimeout(showMessage, 1 * sec, mainCharacterspeech, "hello");
-setTimeout(showMessage, 2 * sec, counterspeech, "hello");
+//setTimeout(showMessage, 1 * sec, mainCharacterspeech, "hello");
+//setTimeout(showMessage, 2 * sec, counterspeech, "hello");
 
