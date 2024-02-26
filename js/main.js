@@ -1,13 +1,42 @@
 document.getElementById("title").innerText = "point and click adventure game ";
+//gamestate
+let gameState = {
+    "door2locked": true,
+    "inventory": [],
+    "keyPickedUp": false
+}
+//Reset localstorage
+// localStorage.removeItem("gameState"); //delete any saved data from previous
+
+//hande browser storage
+if (typeof (Storage) !== "undefined") {
+    //code for localstorage/sessionstorage.
+
+    //check if gamestate already exists
+    if (localStorage.gameState) {
+        //load savegame into local variable
+        gameState = JSON.parse(localStorage.gameState);
+    }
+    else {
+        //save local gamestate into browser storage
+        localStorage.setItem("gameState", JSON.stringify(gameState));
+    }
+
+} else {
+    //no web storage
+    alert('Your browser does not support web storage.');
+
+}
+
+if (gameState.keyPickedUp) {
+    document.getElementById("key1").remove();
+}
 
 //Game window reference
 const playscreen = document.getElementById("playscreen");
 
 //game state
-gameState = {
-    "door2locked": true,
-    "inventory": []
-}
+
 
 const sec = 1000; //time in milliseconds
 
@@ -23,11 +52,14 @@ const mcAudio = document.getElementById("mcAudio");
 const cAudio = document.getElementById("cAudio");
 //inventory
 const inventorybox = document.getElementById('inventorybox');
+const inventoryList = document.getElementById('inventorylist');
 
 //foreground items
 const door1 = document.getElementById("door1");
 const sing = document.getElementById('sign');
 
+// update gamestate
+updateinventory(gameState.inventory, inventoryList);
 
 
 playscreen.onclick = function (e) {
@@ -49,7 +81,9 @@ playscreen.onclick = function (e) {
                 console.log('Found key');
                 document.getElementById("key1").remove();
                 changeinventory('key', 'add');
-            }
+                gameState.keyPickedUp = true;
+                saveToBrowser(gameState);
+            };
             break;
 
         case "door2":
@@ -180,3 +214,11 @@ function hideMessage(targetBalloon, targetSound) {
 //setTimeout(showMessage, 1 * sec, mainCharacterspeech, "hello");
 //setTimeout(showMessage, 2 * sec, counterspeech, "hello");
 
+
+/**
+ * store gameState into localstrorage.gamestate
+ * @param {object} gameState our gamestate object
+ */
+function saveToBrowser(gameState) {
+    localStorage.gameState = JSON.stringify(gameState);
+}
