@@ -48,15 +48,16 @@ body {
     opacity: 1;
     top: 66px;
     left: 480px;
+    /*background-color: blueviolet;*/
 }
 
 #door2 {
     width: 44px;
     height: 54px;
-    /*background-color: darkblue;*/
+    background-color: darkblue;
     opacity: 1;
-    top: 296px;
-    left: 169px;
+    top: 405px;
+    left: 75px;
 }
 
 #key1 {
@@ -76,13 +77,12 @@ body {
     left: 10px;
 }
 
-#statue {
-    width: 32px;
-    height: 64px;
-    background-color: green;
-    top: 285px;
-    left: 704px;
-    opacity: 0;
+#merchant {
+    width: 40px;
+    height: 60px;
+    top: 385px;
+    left: 190px;
+    background-image: url('../new-assets/merchant.png');
 }
 
 /*invetorybox*/
@@ -96,6 +96,7 @@ body {
     border: white 1px solid;
     padding: 1px;
     margin: 0px;
+    opacity: 0.9;
 }
 
 #dialogbox {
@@ -140,7 +141,7 @@ body {
     right: 0px;
     bottom: 0px;
     width: 72px;
-    height: 68px;
+    height: 108px;
 }
 
 #counteravatarimg {

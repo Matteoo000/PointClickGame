@@ -76,12 +76,14 @@ playscreen.onclick = function (e) {
             door1.style.opacity = 1;
             break;
 
-        case "statue":
-            showMessage(mainCharacterspeech, mcAudio, "wow cool statue...");
-            setTimeout(function () { counteravatarimg.style.opacity = 1 }, 4 * sec);
-            setTimeout(showMessage, 4 * sec, counterspeech, cAudio, "I NONO talk");
-            setTimeout(showMessage, 8 * sec, mainCharacterspeech, mcAudio, "YOU DONT HAVE TO BE A FAG ABT IT IMMA BLOW U UP NOW");
-            setTimeout(function () { counteravatarimg.style.opacity = 0 }, 12 * sec);
+        case "merchant":
+            showMessage(mainCharacterspeech, mcAudio, "Hey there, do you know where I can find the doorkey for the church");
+            setTimeout(function () { counteravatarimg.style.opacity = 1 }, 2 * sec);
+            setTimeout(showMessage, 4 * sec, counterspeech, cAudio, "Okay are u ready to get your hands dirty?");
+            setTimeout(showMessage, 8 * sec, mainCharacterspeech, mcAudio, "uhhhh.... if I have to...");
+            setTimeout(showMessage, 4 * sec, counterspeech, cAudio, "Okay, go over to the magical golden pot and put your hands in it and grab it if you feel it");
+            setTimeout(showMessage, 8 * sec, mainCharacterspeech, mcAudio, "well thank you very much merchant");
+            setTimeout(function () { counteravatarimg.style.opacity = 0 }, 18 * sec);
 
             break;
 
