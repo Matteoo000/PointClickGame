@@ -12,7 +12,7 @@ let gameState = {
 if (typeof (Storage) !== "undefined") {
     //code for localstorage/sessionstorage.
 
-    //check if gamestate already exists
+    //save the state of the game
     if (localStorage.gameState) {
         //load savegame into local variable
         gameState = JSON.parse(localStorage.gameState);
@@ -50,6 +50,10 @@ const counterspeech = document.getElementById("counterspeech");
 const counteravatarimg = document.getElementById("counteravatarimg");
 const mcAudio = document.getElementById("mcAudio");
 const cAudio = document.getElementById("cAudio");
+
+const counterspeech2 = document.getElementById("counterspeech2");
+const counteravatarimg2 = document.getElementById("counteravatarimg2");
+
 //inventory
 const inventorybox = document.getElementById('inventorybox');
 const inventoryList = document.getElementById('inventorylist');
@@ -83,7 +87,7 @@ playscreen.onclick = function (e) {
                 changeinventory('key', 'add');
                 gameState.keyPickedUp = true;
                 saveToBrowser(gameState);
-            };
+            }
             break;
 
         case "door2":
@@ -116,13 +120,24 @@ playscreen.onclick = function (e) {
             break;
 
         case "merchant":
-            showMessage(mainCharacterspeech, mcAudio, "Hey there, do you know where I can find the doorkey for the church");
+            showMessage(mainCharacterspeech, mcAudio, "Hey there, do you know where I can find the door key for the church");
             setTimeout(function () { counteravatarimg.style.opacity = 1 }, 2 * sec);
             setTimeout(showMessage, 4 * sec, counterspeech, cAudio, "Okay are u ready to get your hands dirty?");
             setTimeout(showMessage, 8 * sec, mainCharacterspeech, mcAudio, "uhhhh.... if I have to...");
             setTimeout(showMessage, 4 * sec, counterspeech, cAudio, "Okay, go over to the magical golden pot and put your hands in it and grab it if you feel it");
             setTimeout(showMessage, 8 * sec, mainCharacterspeech, mcAudio, "well thank you very much merchant");
             setTimeout(function () { counteravatarimg.style.opacity = 0 }, 18 * sec);
+
+            break;
+
+        case "merchant2":
+            showMessage(mainCharacterspeech, mcAudio, "Hey there, do you know where I can find the door key for the church");
+            setTimeout(function () { counteravatarimg2.style.opacity = 1 }, 2 * sec);
+            setTimeout(showMessage, 4 * sec, counterspeech2, cAudio, "Okay are u ready to get your hands dirty?");
+            setTimeout(showMessage, 8 * sec, mainCharacterspeech, mcAudio, "uhhhh.... if I have to...");
+            setTimeout(showMessage, 4 * sec, counterspeech2, cAudio, "Okay, go over to the magical golden pot and put your hands in it and grab it if you feel it");
+            setTimeout(showMessage, 8 * sec, mainCharacterspeech, mcAudio, "well thank you very much merchant");
+            setTimeout(function () { counteravatarimg2.style.opacity = 0 }, 18 * sec);
 
             break;
 
@@ -197,6 +212,7 @@ function updateinventory(inventory, inventorylist) {
  * 
  */
 function showMessage(targetBalloon, targetSound, message) {
+    console.log("---->", targetSound);
     targetSound.currentTime = 0;
     targetSound.play();
     targetBalloon.style.opacity = "1";
