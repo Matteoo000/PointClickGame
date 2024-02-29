@@ -96,12 +96,11 @@ body {
 }
 
 #merchant2 {
-    width: 40px;
-    height: 60px;
+    width: 36px;
+    height: 44px;
     top: 385px;
     left: 190px;
-    /*background-image: url('../new-assets/NPC\ Merchant-idle.png');*/
-    background-color: blueviolet;
+    background-image: url('../new-assets/luck\ creature-idle.png');
 }
 
 /*invetorybox*/
