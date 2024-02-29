@@ -57,7 +57,7 @@ const inventoryList = document.getElementById('inventorylist');
 //foreground items
 const door1 = document.getElementById("door1");
 const sing = document.getElementById('sign');
-
+const lvltwo = document.getElementById("navigation")
 // update gamestate
 updateinventory(gameState.inventory, inventoryList);
 
@@ -88,12 +88,17 @@ playscreen.onclick = function (e) {
 
         case "door2":
             if (gameState.door2locked == true) {
+                if (gameState.keyPickedUp) {
+                    door2.style.opacity = 0;
+                    lvltwo.style.opacity = 1;
+                }
                 //check if we have key
                 if (document.getElementById("inv-key") !== null) {
                     // yes unlock door
                     gameState.door2locked = false;
                     changeinventory('key', 'delete');
                     console.log('door unlocked!');
+
                 }
                 else {
                     //no alert door locked
