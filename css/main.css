@@ -22,13 +22,17 @@ body {
     z-index: 2000;
     opacity: 0;
 }
+#navigationB{
+    left: 480px;
+    top: 450px;
+}
 
 
 
 #playscreen {
     position: relative;
     width: 800px;
-    height: 600px;
+    height: 608px;
     grid-column-start: 2;
     grid-row-start: 2;
     background-color: black;
@@ -43,6 +47,11 @@ body {
     margin: 15px 0px 0px 0px;
 }
 
+#winText{
+    left: 480px;
+    top: 300px;
+}
+
 #maincharacter {
     width: 32px;
     height: 32px;
@@ -54,7 +63,6 @@ body {
 #door1 {
     width: 64px;
     height: 64px;
-    opacity: 1;
     top: 66px;
     left: 480px;
     /*background-color: blueviolet;*/
@@ -92,7 +100,7 @@ body {
     height: 60px;
     top: 385px;
     left: 190px;
-    background-image: url('../new-assets/NPC\ Merchant-idle.png');
+    background-image: url('../new-assets/NPC Merchant-idle.png');
 }
 
 #merchant2 {
@@ -100,7 +108,7 @@ body {
     height: 22px;
     top: 385px;
     left: 190px;
-    background-image: url('../new-assets/luck\ creature-idle.png');
+    background-image: url('../new-assets/luck creature-idle.png');
 }
 
 /*invetorybox*/
