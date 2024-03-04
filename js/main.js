@@ -6,6 +6,7 @@ let gameState = {
     "keyPickedUp": false
 }
 //Reset localstorage
+
 // localStorage.removeItem("gameState"); //delete any saved data from previous
 
 //hande browser storage
@@ -245,3 +246,10 @@ function hideMessage(targetBalloon, targetSound) {
 function saveToBrowser(gameState) {
     localStorage.gameState = JSON.stringify(gameState);
 }
+//Reset localstorage
+// localStorage.removeItem("gameState"); //delete any saved data from previous
+/*
+function newGame() {
+    localStorage.removeItem("gameState");
+}
+*/

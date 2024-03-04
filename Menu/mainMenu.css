@@ -1,0 +1,47 @@
+* {
+    background-color: black;
+    color: white;
+    font-family: "Source Code Pro", monospace;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    flex-direction: column;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+    overflow: hidden;
+}
+
+.align {
+    flex-direction: column;
+    display: flex;
+    margin: auto;
+    position: relative;
+    top: 0px;
+    opacity: 1;
+    transition: 1s ease-out;
+
+    h1 {
+        font-size: 40px;
+        padding: 5px;
+        transition: 0.5s border ease;
+        z-index: 1;
+    }
+
+    #start {
+        position: 0px;
+        text-align: center;
+        position: relative;
+        top: -50%;
+        transition: 1s top ease-out;
+    }
+}
+
+#navigationC {
+    /*background-color: blue;*/
+    height: 120px;
+    width: 120px;
+}
