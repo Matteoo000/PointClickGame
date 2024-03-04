@@ -12,6 +12,12 @@
             "request": "launch",
             "name": "Launch Chrome",
             "url": "${workspaceFolder}/lvl2.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome for mainMenu.html",
+            "url": "${workspaceFolder}/Menu/mainMenu.html"
         }
     ]
 }
