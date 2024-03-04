@@ -246,6 +246,9 @@ function hideMessage(targetBalloon, targetSound) {
 function saveToBrowser(gameState) {
     localStorage.gameState = JSON.stringify(gameState);
 }
+
+
+
 //Reset localstorage
 // localStorage.removeItem("gameState"); //delete any saved data from previous
 /*
