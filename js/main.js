@@ -80,7 +80,7 @@ playscreen.onclick = function (e) {
     switch (e.target.id) {
         case "door1":
             door1.style.opacity = 0.5;
-            sign.style.opacity = 1;
+            //sign.style.opacity = 1;
 
             if (document.getElementById("key1") !== null) {
                 console.log('Found key');
